@@ -1,9 +1,11 @@
 //
 // Created by gedsH on 2020/8/14.
 //
-
+/**@brief  测试节点
+ * @author geds
+ * @date 2020-08-14
+ * */
 #include "ListNode_and_List.h"
-//typedef ListNode<int>* NodePtr;
 int main()
 {
     ListNode<int> node1(1, nullptr, nullptr);

@@ -1,7 +1,10 @@
 //
-// Created by gedsH on 2020/8/14.
+// Created by geds on 2020/8/14.
 //
-
+/**@brief  ≤‚ ‘¡¥±Ì
+ * @author geds
+ * @date 2020-08-15
+ * */
 #include "ListNode_and_List.h"
 
 template <class T>

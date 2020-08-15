@@ -7,12 +7,14 @@
 
 #include <iostream>
 
+/** @brief 定义节点类, 以便后续构造链表
+ * */
 template <class T>
 class ListNode{
 public:
-    ListNode<T>* pred;
-    ListNode<T>* succ;
-    T data;
+    ListNode<T>* pred;  // 前驱节点
+    ListNode<T>* succ;  // 后继节点
+    T data;             // 节点的数据域
     ListNode() ;
     ListNode(const T& e, ListNode<T>* pred_ = NULL, ListNode<T>* succ_ = NULL);
 
@@ -20,9 +22,16 @@ public:
     ListNode<T>* insertElemAsSuccNode(const T& e);
 };
 
+/** @brief 节点类的构造函数
+ * */
 template <class T>
 ListNode<T>::ListNode() {}
 
+/** @brief 节点类的构造函数
+ *  @param e 节点中数据
+ *  @param pred_ 前驱节点
+ *  @param succ_ 后继节点
+ * */
 template <class T>
 ListNode<T>::ListNode(const T& e, ListNode<T> *pred_, ListNode<T> *succ_) {
     data = e;
@@ -30,6 +39,9 @@ ListNode<T>::ListNode(const T& e, ListNode<T> *pred_, ListNode<T> *succ_) {
     succ = succ_;
 }
 
+/** @brief 在当前节点之前插入数据元素, 并构造新的节点
+ *  @param e 待插入的数据元素
+ * */
 template <class T>
 ListNode<T>* ListNode<T>::insertElemAsPredNode(const T &e) {
     ListNode<T>* node_ptr = new ListNode<T>(e, pred, this);
@@ -38,6 +50,9 @@ ListNode<T>* ListNode<T>::insertElemAsPredNode(const T &e) {
     return node_ptr;
 }
 
+/** @brief 在当前节点之后插入数据元素, 并构造新的节点
+ *  @param e 待插入的数据元素
+ * */
 template <class T>
 ListNode<T>* ListNode<T>::insertElemAsSuccNode(const T &e) {
     ListNode<T>* node_ptr = new ListNode<T>(e, this, succ);
@@ -46,16 +61,18 @@ ListNode<T>* ListNode<T>::insertElemAsSuccNode(const T &e) {
     return node_ptr;
 }
 
+/** @brief 链表类
+ * */
 template <class T>
 class List{
 private:
-    int size_{};
-    ListNode<T>* header;
-    ListNode<T>* trailer;
+    int size_;              // 链表元素数量
+    ListNode<T>* header;    // 链表头哨兵节点
+    ListNode<T>* trailer;   // 链表尾哨兵节点
 protected:
-    void init();
-    int clear();
-    void copyNodes(ListNode<T>* p, int num);
+    void init();                             // 用于构造
+    int clear();                             // 用于析构
+    void copyNodes(ListNode<T>* p, int num); // 用于复制构造
 public:
     List();
     ~List();
@@ -81,6 +98,8 @@ public:
     void traverse(void (*visit) (T&));
 };
 
+/** @brief 初始化List类的成员变量, 用于构造新的链表
+ * */
 template <class T>
 void List<T>::init() {
     size_ = 0;
@@ -90,6 +109,8 @@ void List<T>::init() {
     trailer->pred = header; trailer->succ = nullptr;
 }
 
+/** @brief 删除链表中的所有节点, 用于析构整个链表
+ * */
 template <class T>
 int List<T>::clear() {
     int old_size = size_;
@@ -98,6 +119,10 @@ int List<T>::clear() {
     return old_size;
 }
 
+/** @brief 复制给定节点后的num个节点到链表的尾部, 用于复制构造新的链表
+ *  @param p 待复制的第一个节点
+ *  @param num 需要复制的节点数目
+ * */
 template <class T>
 void List<T>::copyNodes(ListNode<T> *p, int num) {
     init();
