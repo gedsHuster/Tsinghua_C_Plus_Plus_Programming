@@ -11,25 +11,10 @@ template <class T>
 class StackV2: public List<T>{
 public:
     StackV2(){}
-    void push(const T& item);
-    T pop();
-    T top();
+    void push(const T& item){List<T>::insertElemAsLastNode(item);}
+    T pop(){return List<T>::remove(List<T>::last());}
+    T top(){return List<T>::last()->data;}
 
 };
-
-template <class T>
-void StackV2<T>::push(const T &item) {
-    List<T>::insertElemAsLastNode(item);
-}
-
-template <class T>
-T StackV2<T>::pop(){
-    return List<T>::remove(List<T>::last());
-}
-
-template <class T>
-T StackV2<T>::top() {
-    return List<T>::last()->data;
-}
 
 #endif //TSINGHUA_C_PLUS_PLUS_PROGRAMMING_STACKV2_H
