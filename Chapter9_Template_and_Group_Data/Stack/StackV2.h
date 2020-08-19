@@ -10,17 +10,12 @@
 template <class T>
 class StackV2: public List<T>{
 public:
-    StackV2();
+    StackV2(){}
     void push(const T& item);
     T pop();
-    bool empty();
     T top();
 
 };
-
-template <class T>
-StackV2<T>::StackV2() {
-}
 
 template <class T>
 void StackV2<T>::push(const T &item) {
@@ -30,11 +25,6 @@ void StackV2<T>::push(const T &item) {
 template <class T>
 T StackV2<T>::pop(){
     return List<T>::remove(List<T>::last());
-}
-
-template <class T>
-bool StackV2<T>::empty(){
-    return List<T>::empty();
 }
 
 template <class T>
