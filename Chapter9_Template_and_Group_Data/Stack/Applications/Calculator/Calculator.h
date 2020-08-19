@@ -5,7 +5,7 @@
 #ifndef TSINGHUA_C_PLUS_PLUS_PROGRAMMING_CALCULATORTEST_H
 #define TSINGHUA_C_PLUS_PLUS_PROGRAMMING_CALCULATORTEST_H
 
-#include "Stack.h"
+#include "Stack/Stack.h"
 #include <vector>
 #include <sstream>
 
