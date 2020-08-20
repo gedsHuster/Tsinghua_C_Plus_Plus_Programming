@@ -35,6 +35,7 @@ bool checkParenMatch(std::string str){
             S.push(str[i]);
         else{
             if(!S.empty()){
+                // ASCII码之差很小, 则为一对括号, 否则匹配失败
                 if(std::abs(int(str[i]) - int(S.top())) <= 2)
                     S.pop();
             } else
