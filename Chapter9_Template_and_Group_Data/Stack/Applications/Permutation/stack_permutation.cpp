@@ -1,6 +1,7 @@
-//
-// Created by gedsH on 2020/8/20.
-//
+/** brief  : 栈结构应用案例--判断给定序列是否为合法的栈混洗
+ *  author : geds
+ *  date   : 2020-08-20
+ * */
 
 #include <Stack/StackV2.h>
 #include <vector>
@@ -29,7 +30,7 @@ bool isLegalStackPermutation(std::string strTarget, std::string strInit){
             while (S.top() == strTarget[count]){ // 如果S中的元素满足要求,则一直弹出并压入B中
                 B.push(S.pop());
                 count++;
-                if(S.empty()) break;
+                if(S.empty()) break; // 每次pop之前, 判断S是否为空
             }
 
             // S不空
